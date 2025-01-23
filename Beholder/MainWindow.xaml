@@ -1,0 +1,33 @@
+﻿<Window x:Class="Beholder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Beholder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <ComboBox ItemsSource="{Binding category}" SelectedItem="{Binding SelectedCategory }" 
+                  DisplayMemberPath="Title" x:Name="ComboBox1" Height="30" VerticalAlignment="Top" Text="Do you wanna have a bad time?">
+            
+        </ComboBox>
+        <ListView ItemsSource="{Binding SelectedCategory.Problems}" SelectedItem="{Binding SelectedProblem}"
+                  x:Name="Listy" Height="382" VerticalAlignment="Bottom">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="" Width="150" DisplayMemberBinding="{Binding Description}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <StackPanel DataContext="{Binding SelectedProblem}" Grid.Column="1">
+            <TextBox  Text="{Binding Description}"  Height="382" ></TextBox>
+            
+        </StackPanel>
+           
+        <Button Grid.Column="1" Height="30" VerticalAlignment="Bottom" Content="Create" Click="Button_Click"/>
+    </Grid>
+</Window>
