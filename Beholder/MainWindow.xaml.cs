@@ -57,7 +57,7 @@ namespace Beholder
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (SelectedCategory != null) SelectedCategory.Problems.Add(new Problem());
+            if (SelectedCategory != null) SelectedCategory.Problems.Add(new Problem {Date = DateTime.Now});
         }
     }
     public class Category
@@ -67,7 +67,7 @@ namespace Beholder
     }
     public class Problem
     {
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } //dd
         public string Description { get; set; }
         public string Applicant { get; set; }
         public string Solve { get; set; }

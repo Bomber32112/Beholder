@@ -19,12 +19,13 @@
                   x:Name="Listy" Height="382" VerticalAlignment="Bottom">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="" Width="150" DisplayMemberBinding="{Binding Description}"/>
+                    <GridViewColumn Header="Date" DisplayMemberBinding="{Binding Date}"/>
+                    <GridViewColumn Header="Description" Width="255" DisplayMemberBinding="{Binding Description}"/>
                 </GridView>
             </ListView.View>
         </ListView>
         <StackPanel DataContext="{Binding SelectedProblem}" Grid.Column="1">
-            <TextBox  Text="{Binding Description}"  Height="382" ></TextBox>
+            <TextBox  Text="{Binding Description}"  Height="382" TextWrapping="Wrap"></TextBox>
             
         </StackPanel>
            
